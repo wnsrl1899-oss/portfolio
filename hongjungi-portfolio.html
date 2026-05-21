@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>홍준기 — 콘텐츠 마케터</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --text: #e8e4dc;
+    --muted: #7a7570;
+    --accent: #c8b89a;
+    --accent2: #8fb3a0;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 3rem;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s, background 0.3s;
+  }
+  nav.scrolled {
+    border-color: var(--border);
+    background: rgba(14,14,14,0.92);
+    backdrop-filter: blur(12px);
+  }
+  .nav-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.05rem;
+    color: var(--accent);
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(200,184,154,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 70%, rgba(143,179,160,0.05) 0%, transparent 60%);
+  }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-label::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 1px;
+    background: var(--muted);
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3.5rem, 9vw, 8rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-bottom: 2rem;
+  }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-desc {
+    max-width: 480px;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.4rem 0.9rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 2px;
+  }
+  .hero-scroll {
+    position: absolute;
+    bottom: 2rem; right: 3rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+  .hero-scroll::after {
+    content: '';
+    display: block;
+    width: 1px; height: 3rem;
+    background: var(--border);
+    animation: scrollLine 2s ease-in-out infinite;
+  }
+  @keyframes scrollLine {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+  }
+
+  /* STATS */
+  .about-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 2rem 3rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; }
+
+  /* SECTION */
+  .section { padding: 6rem 3rem; }
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    letter-spacing: -0.01em;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+  .section-count {
+    margin-left: auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--muted);
+  }
+
+  /* BRAND CARD */
+  .brand-block {
+    margin-bottom: 2rem;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .brand-block:hover { border-color: #3a3a3a; }
+
+  .brand-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.8rem 2rem;
+    gap: 1.5rem;
+  }
+  .brand-left { display: flex; align-items: baseline; gap: 1.2rem; }
+  .brand-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  .brand-category {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0.25rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+  }
+  .brand-right { display: flex; align-items: center; gap: 1.5rem; }
+  .brand-count {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--accent);
+    white-space: nowrap;
+  }
+
+  /* VIEW BUTTON */
+  .btn-view {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text);
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border);
+    background: transparent;
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+    white-space: nowrap;
+  }
+  .btn-view:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(200,184,154,0.04);
+  }
+  .btn-view svg { transition: transform 0.2s; }
+  .btn-view:hover svg { transform: translateX(3px); }
+
+  /* COMING SOON */
+  .brand-coming {
+    padding: 1rem 2rem 1.8rem;
+    border-top: 1px solid var(--border);
+  }
+  .coming-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    opacity: 0.5;
+  }
+
+  /* FADE IN */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* CONTACT */
+  .contact-section {
+    padding: 6rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .contact-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .contact-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .contact-section h2 em { font-style: italic; color: var(--accent); }
+  .contact-links { display: flex; flex-direction: column; gap: 0.8rem; text-align: right; }
+  .contact-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .contact-links a:hover { color: var(--accent); }
+
+  footer {
+    padding: 1.5rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .about-strip { grid-template-columns: repeat(2, 1fr); padding: 1.5rem; }
+    .section { padding: 4rem 1.5rem; }
+    .brand-header { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.4rem 1.4rem; }
+    .brand-right { width: 100%; justify-content: space-between; }
+    .contact-section { flex-direction: column; gap: 3rem; align-items: flex-start; padding: 4rem 1.5rem; }
+    .contact-links { text-align: left; }
+    footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-name">홍준기</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-label">콘텐츠 마케터 · 풀프로덕션</div>
+  <h1 class="hero-title">Hong<br><em>Junki</em></h1>
+  <p class="hero-desc">
+    기획부터 촬영, 직접 출연, 편집, 메타 광고 집행까지 —<br>
+    브랜드의 이야기를 혼자 만들고 직접 세상에 내보냅니다.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">기획</span>
+    <span class="tag">촬영</span>
+    <span class="tag">직접 출연</span>
+    <span class="tag">영상 편집</span>
+    <span class="tag">메타 광고</span>
+    <span class="tag">쇼츠 / 릴스</span>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+
+<!-- STATS -->
+<div class="about-strip">
+  <div class="stat-item">
+    <div class="stat-num">60+</div>
+    <div class="stat-label">광고 콘텐츠</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5</div>
+    <div class="stat-label">브랜드</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">1인</div>
+    <div class="stat-label">풀프로덕션</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">Meta</div>
+    <div class="stat-label">광고 집행</div>
+  </div>
+</div>
+
+<!-- WORK -->
+<section class="section" id="work">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected <em>Work</em></h2>
+    <span class="section-count">60 contents · 5 brands</span>
+  </div>
+
+  <!-- RAINFIELD -->
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left">
+        <span class="brand-name">Rainfield</span>
+        <span class="brand-category">Fragrance</span>
+      </div>
+      <div class="brand-right">
+        <span class="brand-count">17 videos</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1JD14pM42_fpt-pws0c6Qh92xcM9eNhU5" target="_blank">
+          영상 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OHBLUE -->
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left">
+        <span class="brand-name">Oh Blue</span>
+        <span class="brand-category">Skincare · Acne Care</span>
+      </div>
+      <div class="brand-right">
+        <span class="brand-count">19 videos · 5 images</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1fhVgK8uYqrFt88aBuSzY9fgbrtYz7i4K" target="_blank">
+          영상 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEELFRUIT -->
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left">
+        <span class="brand-name">Feel Fruit</span>
+        <span class="brand-category">Skincare · Brightening</span>
+      </div>
+      <div class="brand-right">
+        <span class="brand-count">18 videos · 1 instatoon</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1_AtkHryxiO0LglZMvFVs3UJi90E_6St6" target="_blank">
+          영상 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FROMGOD -->
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left">
+        <span class="brand-name">From God</span>
+        <span class="brand-category">Skincare · Acne Care</span>
+      </div>
+      <div class="brand-right">
+        <span class="brand-count" style="opacity:0.4">Coming Soon</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1QesfBSE3p4KCeXOVQkXFGsZ9NYN48WER" target="_blank">
+          영상 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="brand-coming">
+      <span class="coming-label">촬영 준비 중</span>
+    </div>
+  </div>
+
+  <!-- FIVEDAYS -->
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left">
+        <span class="brand-name">5 Days</span>
+        <span class="brand-category">Skincare · Brightening</span>
+      </div>
+      <div class="brand-right">
+        <span class="brand-count" style="opacity:0.4">Coming Soon</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1IdLoGLEhZfiQPI7ORjt16sHPdF89fDY0" target="_blank">
+          영상 보기
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M2 6h8M6 2l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="brand-coming">
+      <span class="coming-label">촬영 준비 중</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+  <div class="contact-left">
+    <p class="contact-label">Get in touch</p>
+    <h2>같이<br><em>만들어요.</em></h2>
+  </div>
+  <div class="contact-links">
+    <a href="tel:01075091710">010-7509-1710</a>
+    <a href="mailto:os6877@naver.com">os6877@naver.com</a>
+  </div>
+</div>
+
+<footer>
+  <span>© 2025 홍준기</span>
+  <span>Perf. & Content Marketer</span>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
