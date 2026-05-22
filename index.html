@@ -7,50 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Noto+Sans+KR:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0e0e0e;
-    --surface: #161616;
-    --border: #2a2a2a;
-    --text: #e8e4dc;
-    --muted: #7a7570;
-    --accent: #c8b89a;
-    --accent2: #8fb3a0;
-  }
+  :root { --bg: #0e0e0e; --surface: #161616; --border: #2a2a2a; --text: #e8e4dc; --muted: #7a7570; --accent: #c8b89a; --accent2: #8fb3a0; }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Noto Sans KR', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.4;
-  }
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.4rem 3rem;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.3s, background 0.3s;
-  }
-  nav.scrolled {
-    border-color: var(--border);
-    background: rgba(14,14,14,0.92);
-    backdrop-filter: blur(12px);
-  }
+  body { background: var(--bg); color: var(--text); font-family: 'Noto Sans KR', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 3rem; border-bottom: 1px solid transparent; transition: border-color 0.3s, background 0.3s; }
+  nav.scrolled { border-color: var(--border); background: rgba(14,14,14,0.92); backdrop-filter: blur(12px); }
   .nav-name { font-family: 'DM Serif Display', serif; font-size: 1.05rem; color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
@@ -88,8 +51,6 @@
   .btn-view:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,184,154,0.04); }
   .btn-view svg { transition: transform 0.2s; }
   .btn-view:hover svg { transform: translateX(3px); }
-  .brand-coming { padding: 1rem 2rem 1.8rem; border-top: 1px solid var(--border); }
-  .coming-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
   .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
   .contact-section { padding: 6rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
@@ -138,7 +99,7 @@
   <div class="hero-scroll">Scroll</div>
 </section>
 <div class="about-strip">
-  <div class="stat-item"><div class="stat-num">61+</div><div class="stat-label">광고 콘텐츠</div></div>
+  <div class="stat-item"><div class="stat-num">66+</div><div class="stat-label">광고 콘텐츠</div></div>
   <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">브랜드</div></div>
   <div class="stat-item"><div class="stat-num">1인</div><div class="stat-label">풀프로덕션</div></div>
   <div class="stat-item"><div class="stat-num">Meta</div><div class="stat-label">광고 집행</div></div>
@@ -147,7 +108,7 @@
   <div class="section-header">
     <span class="section-num">01</span>
     <h2 class="section-title">Selected <em>Work</em></h2>
-    <span class="section-count">61 contents · 5 brands</span>
+    <span class="section-count">66 contents · 5 brands</span>
   </div>
   <div class="brand-block fade-in">
     <div class="brand-header">
@@ -162,7 +123,7 @@
     <div class="brand-header">
       <div class="brand-left"><span class="brand-name">Oh Blue</span><span class="brand-category">Skincare · Acne Care</span></div>
       <div class="brand-right">
-        <span class="brand-count">19 videos · 5 images</span>
+        <span class="brand-count">20 videos · 5 images</span>
         <a class="btn-view" href="https://drive.google.com/drive/folders/1fhVgK8uYqrFt88aBuSzY9fgbrtYz7i4K" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
     </div>
@@ -171,7 +132,7 @@
     <div class="brand-header">
       <div class="brand-left"><span class="brand-name">Feel Fruit</span><span class="brand-category">Skincare · Brightening</span></div>
       <div class="brand-right">
-        <span class="brand-count">18 videos · 1 instatoon</span>
+        <span class="brand-count">19 videos · 1 instatoon</span>
         <a class="btn-view" href="https://drive.google.com/drive/folders/1_AtkHryxiO0LglZMvFVs3UJi90E_6St6" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
     </div>
@@ -180,7 +141,7 @@
     <div class="brand-header">
       <div class="brand-left"><span class="brand-name">From God</span><span class="brand-category">Skincare · Acne Care</span></div>
       <div class="brand-right">
-        <span class="brand-count">1 video</span>
+        <span class="brand-count">2 videos</span>
         <a class="btn-view" href="https://drive.google.com/drive/folders/1QesfBSE3p4KCeXOVQkXFGsZ9NYN48WER" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
     </div>
@@ -189,11 +150,10 @@
     <div class="brand-header">
       <div class="brand-left"><span class="brand-name">5 Days</span><span class="brand-category">Skincare · Brightening</span></div>
       <div class="brand-right">
-        <span class="brand-count" style="opacity:0.4">Coming Soon</span>
+        <span class="brand-count">2 videos</span>
         <a class="btn-view" href="https://drive.google.com/drive/folders/1IdLoGLEhZfiQPI7ORjt16sHPdF89fDY0" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
       </div>
     </div>
-    <div class="brand-coming"><span class="coming-label">촬영 준비 중</span></div>
   </div>
 </section>
 <div class="contact-section" id="contact">
