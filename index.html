@@ -40,4 +40,196 @@
   .section-title em { font-style: italic; color: var(--accent); }
   .section-count { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); }
   .brand-block { margin-bottom: 2rem; border: 1px solid var(--border); transition: border-color 0.2s; }
-  .brand-block:hover { border-color: #3
+  .brand-block:hover { border-color: #3a3a3a; }
+  .brand-header { display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem; gap: 1.5rem; }
+  .brand-left { display: flex; align-items: baseline; gap: 1.2rem; }
+  .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; letter-spacing: -0.01em; }
+  .brand-category { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 2px; }
+  .brand-right { display: flex; align-items: center; gap: 1.5rem; }
+  .brand-count { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent); white-space: nowrap; }
+  .btn-view { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 0.6rem 1.2rem; border: 1px solid var(--border); background: transparent; transition: border-color 0.2s, color 0.2s, background 0.2s; white-space: nowrap; }
+  .btn-view:hover { border-color: var(--accent); color: var(--accent); background: rgba(200,184,154,0.04); }
+  .btn-view svg { transition: transform 0.2s; }
+  .btn-view:hover svg { transform: translateX(3px); }
+  .brand-stats { display: flex; gap: 2rem; padding: 0.8rem 2rem 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+  .brand-stat { display: flex; flex-direction: column; gap: 0.2rem; }
+  .brand-stat-value { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent); line-height: 1; }
+  .brand-stat-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+  .contact-section { padding: 6rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
+  .contact-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+  .contact-section h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 5vw, 4rem); line-height: 1; letter-spacing: -0.02em; }
+  .contact-section h2 em { font-style: italic; color: var(--accent); }
+  .contact-links { display: flex; flex-direction: column; gap: 0.8rem; text-align: right; }
+  .contact-links a { font-family: 'DM Mono', monospace; font-size: 0.75rem; letter-spacing: 0.08em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+  .contact-links a:hover { color: var(--accent); }
+  footer { padding: 1.5rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  footer span { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; color: var(--muted); }
+  @media (max-width: 768px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .hero { padding: 0 1.5rem 4rem; }
+    .about-strip { grid-template-columns: repeat(2, 1fr); padding: 1.5rem; }
+    .section { padding: 4rem 1.5rem; }
+    .brand-header { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.4rem 1.4rem; }
+    .brand-right { width: 100%; justify-content: space-between; }
+    .brand-stats { gap: 1.2rem; }
+    .contact-section { flex-direction: column; gap: 3rem; align-items: flex-start; padding: 4rem 1.5rem; }
+    .contact-links { text-align: left; }
+    footer { padding: 1.2rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<nav id="nav">
+  <div class="nav-name">홍준기</div>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-label">콘텐츠 마케터 · 풀프로덕션</div>
+  <h1 class="hero-title">Hong<br><em>Junki</em></h1>
+  <p class="hero-desc">기획부터 촬영, 직접 출연, 편집, 메타 광고 집행까지 —<br>브랜드의 이야기를 혼자 만들고 직접 세상에 내보냅니다.</p>
+  <div class="hero-tags">
+    <span class="tag">기획</span>
+    <span class="tag">촬영</span>
+    <span class="tag">직접 출연</span>
+    <span class="tag">영상 편집</span>
+    <span class="tag">메타 광고</span>
+    <span class="tag">쇼츠 / 릴스</span>
+  </div>
+  <div class="hero-scroll">Scroll</div>
+</section>
+<div class="about-strip">
+  <div class="stat-item"><div class="stat-num">78+</div><div class="stat-label">광고 콘텐츠</div></div>
+  <div class="stat-item"><div class="stat-num">5</div><div class="stat-label">브랜드</div></div>
+  <div class="stat-item"><div class="stat-num">1인</div><div class="stat-label">풀프로덕션</div></div>
+  <div class="stat-item"><div class="stat-num">Meta</div><div class="stat-label">광고 집행</div></div>
+</div>
+<section class="section" id="work">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Selected <em>Work</em></h2>
+    <span class="section-count">78 contents · 5 brands</span>
+  </div>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">Rainfield</span><span class="brand-category">Perfume</span></div>
+      <div class="brand-right">
+        <span class="brand-count">17 videos</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1JD14pM42_fpt-pws0c6Qh92xcM9eNhU5" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">55,588</div><div class="brand-stat-label">총 노출수</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">40,999</div><div class="brand-stat-label">총 도달</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">750</div><div class="brand-stat-label">총 링크 클릭</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">1.29%</div><div class="brand-stat-label">평균 CTR</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$0.83</div><div class="brand-stat-label">평균 CPC</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$10.03</div><div class="brand-stat-label">평균 CPM</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">650</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">28.1%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+  </div>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">Oh Blue</span><span class="brand-category">Skincare · Acne Care</span></div>
+      <div class="brand-right">
+        <span class="brand-count">25 videos · 5 images</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1fhVgK8uYqrFt88aBuSzY9fgbrtYz7i4K" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">92,672</div><div class="brand-stat-label">총 노출수</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">70,854</div><div class="brand-stat-label">총 도달</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">714</div><div class="brand-stat-label">총 링크 클릭</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">0.71%</div><div class="brand-stat-label">평균 CTR</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$1.15</div><div class="brand-stat-label">평균 CPC</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$6.63</div><div class="brand-stat-label">평균 CPM</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">614</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">24.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+  </div>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">Feel Fruit</span><span class="brand-category">Skincare · Brightening</span></div>
+      <div class="brand-right">
+        <span class="brand-count">26 videos · 1 instatoon</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1_AtkHryxiO0LglZMvFVs3UJi90E_6St6" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">78,358</div><div class="brand-stat-label">총 노출수</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">54,646</div><div class="brand-stat-label">총 도달</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">976</div><div class="brand-stat-label">총 링크 클릭</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">1.19%</div><div class="brand-stat-label">평균 CTR</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$0.85</div><div class="brand-stat-label">평균 CPC</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$9.12</div><div class="brand-stat-label">평균 CPM</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">919</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">25.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+  </div>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">From God</span><span class="brand-category">Skincare · Acne Care</span></div>
+      <div class="brand-right">
+        <span class="brand-count">2 videos</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1QesfBSE3p4KCeXOVQkXFGsZ9NYN48WER" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">4,390</div><div class="brand-stat-label">총 노출수</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">3,038</div><div class="brand-stat-label">총 도달</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">21</div><div class="brand-stat-label">총 링크 클릭</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">0.51%</div><div class="brand-stat-label">평균 CTR</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$1.90</div><div class="brand-stat-label">평균 CPC</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$8.99</div><div class="brand-stat-label">평균 CPM</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">11</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">16.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+  </div>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">5 Days</span><span class="brand-category">Skincare · Brightening</span></div>
+      <div class="brand-right">
+        <span class="brand-count">2 videos</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1IdLoGLEhZfiQPI7ORjt16sHPdF89fDY0" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">3,862</div><div class="brand-stat-label">총 노출수</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">3,147</div><div class="brand-stat-label">총 도달</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">68</div><div class="brand-stat-label">총 링크 클릭</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">1.77%</div><div class="brand-stat-label">평균 CTR</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$0.60</div><div class="brand-stat-label">평균 CPC</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">$10.04</div><div class="brand-stat-label">평균 CPM</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">49</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">18.6%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+  </div>
+</section>
+<div class="contact-section" id="contact">
+  <div class="contact-left">
+    <p class="contact-label">Get in touch</p>
+    <h2>같이<br><em>만들어요.</em></h2>
+  </div>
+  <div class="contact-links">
+    <a href="tel:01075091710">010-7509-1710</a>
+    <a href="mailto:os6877@naver.com">os6877@naver.com</a>
+  </div>
+</div>
+<footer>
+  <span>© 2025 홍준기</span>
+  <span>Perf. & Content Marketer</span>
+</footer>
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 60); });
+  const observer = new IntersectionObserver((entries) => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
