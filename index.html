@@ -55,6 +55,20 @@
   .brand-stat { display: flex; flex-direction: column; gap: 0.2rem; }
   .brand-stat-value { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--accent); line-height: 1; }
   .brand-stat-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .brand-insight { border-top: 1px solid var(--border); overflow: hidden; }
+  .brand-insight-toggle { width: 100%; background: none; border: none; padding: 0.9rem 2rem; display: flex; align-items: center; justify-content: space-between; cursor: pointer; color: var(--muted); font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+  .brand-insight-toggle:hover { color: var(--text); }
+  .brand-insight-toggle svg { transition: transform 0.3s; }
+  .brand-insight-toggle.open svg { transform: rotate(180deg); }
+  .brand-insight-body { display: none; padding: 0 2rem 1.8rem; }
+  .brand-insight-body.open { display: block; }
+  .insight-section { margin-bottom: 1.4rem; }
+  .insight-section:last-child { margin-bottom: 0; }
+  .insight-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
+  .insight-text { font-size: 0.82rem; color: var(--muted); line-height: 1.8; }
+  .insight-list { list-style: none; margin: 0.5rem 0 0; }
+  .insight-list li { font-size: 0.8rem; color: var(--muted); line-height: 1.7; padding-left: 1rem; position: relative; }
+  .insight-list li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .fade-in { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
   .contact-section { padding: 6rem 3rem; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: flex-end; }
@@ -133,6 +147,14 @@
       <div class="brand-stat"><div class="brand-stat-value">650</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
       <div class="brand-stat"><div class="brand-stat-value">28.1%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
     </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">향수 광고는 향 계열이나 지속력 설명 중심 콘텐츠가 많았습니다. 하지만 실제 사용자 후기에서는 향 자체보다 향수 사용 후 주변 사람들의 반응이 더 자주 언급되고 있었습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>향수 뭐 쓰냐고 물어보는 상황</li><li>첫인상이 좋아졌다는 반응</li><li>평범한 옷도 더 좋아 보인다는 경험</li><li>향 때문에 기억에 남았던 사례</li></ul></div>
+        <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">제품 특징을 직접 설명하는 콘텐츠보다 사용 후 경험과 사회적 반응을 보여주는 콘텐츠가 더 높은 관심과 클릭을 유도했습니다.</p></div>
+      </div>
+    </div>
   </div>
   <div class="brand-block fade-in">
     <div class="brand-header">
@@ -151,6 +173,14 @@
       <div class="brand-stat"><div class="brand-stat-value">$6.63</div><div class="brand-stat-label">평균 CPM</div></div>
       <div class="brand-stat"><div class="brand-stat-value">614</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
       <div class="brand-stat"><div class="brand-stat-value">24.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">기존 트러블 광고는 성분이나 피부 고민 설명 위주 콘텐츠가 많았습니다. 실제 커뮤니티 후기를 분석해보니 사용자들은 트러블 자체보다 피부가 좋아진 이후의 변화에 더 큰 만족을 느끼고 있었습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>피부 때문에 약속을 피하던 사람이 사람 만나는 것이 편해진 사례</li><li>거울을 수시로 확인하던 습관이 줄어든 사례</li><li>주변 사람들에게 피부 좋아졌다는 반응을 받은 사례</li></ul></div>
+        <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">트러블 원인이나 성분 설명보다 피부 개선 후 달라진 행동과 주변 반응을 보여주는 콘텐츠가 더 높은 공감과 반응을 이끌어냈습니다.</p></div>
+      </div>
     </div>
   </div>
   <div class="brand-block fade-in">
@@ -171,6 +201,14 @@
       <div class="brand-stat"><div class="brand-stat-value">919</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
       <div class="brand-stat"><div class="brand-stat-value">25.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
     </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">기존 미백 광고는 피부톤 개선 자체를 강조하는 콘텐츠가 많았습니다. 하지만 사용자 후기에서는 피부가 밝아진 이후 화장, 사진, 패션 등 일상에서의 변화가 더 자주 언급되고 있었습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>립 제품이 자연스럽게 어울리는 경험</li><li>기기 기본카메라 촬영에 대한 자신감 향상</li><li>쌩얼 외출 증가</li><li>옷 색상이 더 잘 받는 경험</li></ul></div>
+        <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">'얼마나 하얘졌는가'보다 '하얘져서 무엇이 달라졌는가'를 보여주는 콘텐츠가 더 높은 공감과 참여를 유도했습니다.</p></div>
+      </div>
+    </div>
   </div>
   <div class="brand-block fade-in">
     <div class="brand-header">
@@ -190,6 +228,14 @@
       <div class="brand-stat"><div class="brand-stat-value">11</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
       <div class="brand-stat"><div class="brand-stat-value">16.2%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
     </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">트러블 광고 대부분은 여드름 원인이나 성분 설명에 집중되어 있었습니다. 하지만 실제 사용자 후기에서는 트러블이 줄어든 이후 생긴 자신감 변화와 생활 변화에 대한 언급이 더 많았습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>반복적으로 올라오던 트러블이 줄어든 경험</li><li>거울 확인 습관 감소</li><li>자연스럽게 사람을 만나게 된 경험</li><li>주변 사람들이 피부 좋아졌다고 반응한 사례</li></ul></div>
+        <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">트러블 원인 설명보다 피부 개선 이후 달라진 행동과 자신감 변화를 보여주는 콘텐츠가 더 높은 공감과 반응을 이끌어냈습니다.</p></div>
+      </div>
+    </div>
   </div>
   <div class="brand-block fade-in">
     <div class="brand-header">
@@ -208,6 +254,14 @@
       <div class="brand-stat"><div class="brand-stat-value">$10.04</div><div class="brand-stat-label">평균 CPM</div></div>
       <div class="brand-stat"><div class="brand-stat-value">49</div><div class="brand-stat-label">랜딩페이지 조회</div></div>
       <div class="brand-stat"><div class="brand-stat-value">18.6%</div><div class="brand-stat-label">평균 3초 시청률</div></div>
+    </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">기존 미백 콘텐츠는 피부톤 개선 자체를 강조하는 경우가 많았습니다. 하지만 사용자 후기에서는 피부톤 개선 이후 화장, 사진, 패션 등 일상 변화에 대한 언급이 더 많았습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>립 제품이 자연스럽게 어울리는 경험</li><li>기본카메라 촬영에 대한 자신감 향상</li><li>쌩얼 외출 빈도 증가</li><li>옷 색상이 더 잘 받는 경험</li><li>주변 사람들이 피부톤 변화를 알아보는 사례</li></ul></div>
+        <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">미백 효과 자체보다 피부톤 개선으로 인해 달라진 일상과 자신감 변화를 보여주는 콘텐츠가 더 높은 관심과 참여를 유도했습니다.</p></div>
+      </div>
     </div>
   </div>
 </section>
