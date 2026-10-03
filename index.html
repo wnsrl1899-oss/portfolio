@@ -48,17 +48,20 @@
   .method-list li { font-size: 0.76rem; color: var(--muted); line-height: 1.85; padding-left: 1rem; position: relative; }
   .method-list li::before { content: '—'; position: absolute; left: 0; color: var(--border); }
   .section { padding: 6rem 3rem; }
+  .section + .section { border-top: 1px solid var(--border); }
   .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 4rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
   .section-num { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.15em; }
   .section-title { font-family: 'DM Serif Display', serif; font-size: 1.8rem; letter-spacing: -0.01em; }
   .section-title em { font-style: italic; color: var(--accent); }
   .section-count { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); }
+  .spec-note { font-size: 0.8rem; color: var(--muted); line-height: 1.8; margin: -2.5rem 0 2.5rem; padding-left: 1rem; border-left: 1px solid var(--accent2); }
   .brand-block { margin-bottom: 2rem; border: 1px solid var(--border); transition: border-color 0.2s; }
   .brand-block:hover { border-color: #3a3a3a; }
   .brand-header { display: flex; align-items: center; justify-content: space-between; padding: 1.8rem 2rem; gap: 1.5rem; }
-  .brand-left { display: flex; align-items: baseline; gap: 1.2rem; }
+  .brand-left { display: flex; align-items: baseline; gap: 1.2rem; flex-wrap: wrap; }
   .brand-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; letter-spacing: -0.01em; }
   .brand-category { font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0.25rem 0.6rem; border: 1px solid var(--border); border-radius: 2px; }
+  .brand-category.spec { color: var(--accent2); border-color: rgba(143,179,160,0.4); }
   .brand-right { display: flex; align-items: center; gap: 1.5rem; }
   .brand-count { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--accent); white-space: nowrap; }
   .btn-view { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 0.6rem 1.2rem; border: 1px solid var(--border); background: transparent; transition: border-color 0.2s, color 0.2s, background 0.2s; white-space: nowrap; }
@@ -100,9 +103,11 @@
     .campaign-summary-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
     .method { padding: 1.5rem; }
     nav { padding: 1.2rem 1.5rem; }
+    .nav-links { gap: 1.2rem; }
     .hero { padding: 0 1.5rem 4rem; }
     .about-strip { grid-template-columns: repeat(3, 1fr); padding: 1.5rem; }
     .section { padding: 4rem 1.5rem; }
+    .spec-note { margin: -2.5rem 0 2rem; }
     .brand-header { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.4rem 1.4rem; }
     .brand-right { width: 100%; justify-content: space-between; }
     .brand-stats { gap: 1.2rem; }
@@ -117,6 +122,7 @@
   <div class="nav-name">홍준기</div>
   <ul class="nav-links">
     <li><a href="#work">Work</a></li>
+    <li><a href="#spec">Spec</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -327,6 +333,37 @@
         <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">기존 미백 콘텐츠는 피부톤 개선 자체를 강조하는 경우가 많았습니다. 하지만 사용자 후기에서는 피부톤 개선 이후 화장, 사진, 패션 등 일상 변화에 대한 언급이 더 많았습니다.</p></div>
         <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>립 제품이 자연스럽게 어울리는 경험</li><li>기본카메라 촬영에 대한 자신감 향상</li><li>쌩얼 외출 빈도 증가</li><li>옷 색상이 더 잘 받는 경험</li><li>주변 사람들이 피부톤 변화를 알아보는 사례</li></ul></div>
         <div class="insight-section"><div class="insight-label">인사이트</div><p class="insight-text">미백 효과 자체보다 피부톤 개선으로 인해 달라진 일상과 자신감 변화를 보여주는 콘텐츠가 더 높은 관심과 참여를 유도했습니다. 소재 5편·집행 기간이 가장 짧아 표본이 제한적이며, 클릭 → 랜딩 도달률 73.5%로 랜딩 단계 이탈이 가장 컸습니다.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section" id="spec">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Spec <em>Work</em></h2>
+    <span class="section-count">자체 기획 · 제작</span>
+  </div>
+  <p class="spec-note">실제 집행한 캠페인이 아닌, 직접 기획·제작한 광고 시안입니다. 브랜드명은 포트폴리오용 가상 브랜드이며, 집행 데이터가 없어 성과 지표 대신 기획 의도와 검증 포인트를 기재했습니다.</p>
+  <div class="brand-block fade-in">
+    <div class="brand-header">
+      <div class="brand-left"><span class="brand-name">ROOMSTAGE</span><span class="brand-category spec">Creator Recruit · 가상 브랜드</span></div>
+      <div class="brand-right">
+        <span class="brand-count">1 video · 2026.09</span>
+        <a class="btn-view" href="https://drive.google.com/drive/folders/1TnKd7U8xMgUZ_YoMWMMXvcgGbcZ4D-Z7?usp=drive_link" target="_blank">영상 보기 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 6h8M6 2l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+    <div class="brand-stats">
+      <div class="brand-stat"><div class="brand-stat-value">21초</div><div class="brand-stat-label">러닝타임</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">9:16</div><div class="brand-stat-label">세로 숏폼</div></div>
+      <div class="brand-stat"><div class="brand-stat-value">폰 + CapCut</div><div class="brand-stat-label">촬영 · 편집</div></div>
+      <div class="brand-stat"><div class="brand-stat-value est">미집행</div><div class="brand-stat-label">광고 집행</div></div>
+    </div>
+    <div class="brand-insight">
+      <button class="brand-insight-toggle" onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">기획 의도 보기 <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3.5L5 6.5L8 3.5"/></svg></button>
+      <div class="brand-insight-body">
+        <div class="insight-section"><div class="insight-label">기획 배경</div><p class="insight-text">라이브 방송 호스트 모집 광고는 대부분 방송 장비 지원을 내세워 서로 차별점이 없었습니다. 처음 방송을 고민하는 사람이 실제로 궁금한 건 장비가 아니라 '그래서 얼마를 벌 수 있는가'라고 판단해, 수익을 전면에 내세우는 소구로 기획했습니다.</p></div>
+        <div class="insight-section"><div class="insight-label">실행</div><ul class="insight-list"><li>훅: 장비 대신 정산서를 보여주는 곳</li><li>빈 방 → 블러 처리된 정산서로 궁금증 유발 → LIVE 댓글·선물 → 정산서 공개 → 브랜드 엔딩</li><li>'집에서 폰 한 대로도 가능하다'는 진입장벽 해소 메시지</li><li>폰 촬영, AI 이미지 생성, CapCut 편집까지 1인 제작</li></ul></div>
+        <div class="insight-section"><div class="insight-label">집행 시 검증 포인트</div><p class="insight-text">블러 정산서 훅이 초반 이탈을 막는지는 3초 시청률로, 정산서 공개 장면까지 시청이 유지되는지는 구간별 시청 유지율로, 수익 소구가 실제 지원으로 이어지는지는 지원 페이지 클릭률로 확인할 계획입니다.</p></div>
       </div>
     </div>
   </div>
